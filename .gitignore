@@ -1,0 +1,33 @@
+# Java / Maven / Gradle
+target/
+build/
+bin/
+*.class
+*.jar
+.gradle/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ / VS Code
+.idea/
+*.iml
+.vscode/
+
+# Node / React
+node_modules/
+frontend/build/
+frontend/dist/
+npm-debug.log*
+
+# Segredos e configuracoes locais (nunca subir senhas)
+.env
+.env.*
+application-local.properties
+application-local.yml
+
+# Sistema e logs
+*.log
+.DS_Store
