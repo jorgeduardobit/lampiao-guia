@@ -38,10 +38,10 @@ public class ServicoService {
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Serviço não encontrado"));
 	}
 	
-	// CREATE: usúario comum sugere, e o serviço nasce pemdemte
+	// CREATE: usúario comum sugere, e o serviço nasce pendente
 	public Servico sugerir(Servico servico, Integer usuarioId) {
 		servico.setId(null);
-		servico.setStatus(StatusServicoEnum.aprovado);
+		servico.setStatus(StatusServicoEnum.pendente);
 		servico.setCriadoPor(usuarioId);
 		return repository.save(servico);
 	}
@@ -49,7 +49,7 @@ public class ServicoService {
 	// CREATE: administrador cadastra, e o serviço já nasce aprovado
 	public Servico cadastrar(Servico servico, Integer adminId) {
 		servico.setId(null);
-		servico.setStatus(StatusServicoEnum.pendente);
+		servico.setStatus(StatusServicoEnum.aprovado);
 		servico.setCriadoPor(adminId);
 		servico.setRevisadoPor(adminId);
 		return repository.save(servico);
