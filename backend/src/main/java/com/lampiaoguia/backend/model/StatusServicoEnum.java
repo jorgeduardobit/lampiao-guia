@@ -1,6 +1,6 @@
 package com.lampiaoguia.backend.model;
 
-public enum StatusServico {
+public enum StatusServicoEnum {
 	pendente,
 	aprovado,
 	rejeitado,

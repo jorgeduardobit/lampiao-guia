@@ -40,7 +40,7 @@ public class Servico {
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private StatusServico status = StatusServico.pendente;
+	private StatusServicoEnum status = StatusServicoEnum.pendente;
 	
 	@Column(name = "criado_por")
 	private Integer criadoPor;
@@ -114,11 +114,11 @@ public class Servico {
 		this.descricao = descricao;
 	}
 
-	public StatusServico getStatus() {
+	public StatusServicoEnum getStatus() {
 		return status;
 	}
 
-	public void setStatus(StatusServico status) {
+	public void setStatus(StatusServicoEnum status) {
 		this.status = status;
 	}
 
