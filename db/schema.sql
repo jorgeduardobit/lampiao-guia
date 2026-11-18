@@ -41,5 +41,6 @@ CREATE TABLE avaliacoes (
   nota_atencao_resolucao TINYINT NOT NULL CHECK (nota_atencao_resolucao BETWEEN 1 AND 5),
   data_avaliacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL,
-  FOREIGN KEY (servico_id) REFERENCES servicos(id)
+  FOREIGN KEY (servico_id) REFERENCES servicos(id),
+  CONSTRAINT uq_usuario_servico UNIQUE (usuario_id, servico_id)
 );
