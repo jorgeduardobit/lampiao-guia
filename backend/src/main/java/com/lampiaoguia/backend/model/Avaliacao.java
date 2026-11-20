@@ -35,6 +35,10 @@ public class Avaliacao {
 	private Integer notaIdentidadeGenero;
 	
 	@JdbcTypeCode(SqlTypes.TINYINT)
+	@Column(name = "nota_nao_discriminacao", nullable = false)
+	private Integer notaNaoDiscriminacao;
+	
+	@JdbcTypeCode(SqlTypes.TINYINT)
 	@Column(name = "nota_inclusao", nullable = false)
 	private Integer notaInclusao;
 	
@@ -127,5 +131,14 @@ public class Avaliacao {
 	public void setDataAvaliacao(LocalDateTime dataAvaliacao) {
 		this.dataAvaliacao = dataAvaliacao;
 	}
+	
+	public Integer getNotaNaoDiscriminacao() {
+		return notaNaoDiscriminacao;
+	}
+
+	public void setNotaNaoDiscriminacao(Integer notaNaoDiscriminacao) {
+		this.notaNaoDiscriminacao = notaNaoDiscriminacao;
+	}
+	
 
 }

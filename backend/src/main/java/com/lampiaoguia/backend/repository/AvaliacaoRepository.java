@@ -1,10 +1,10 @@
 package com.lampiaoguia.backend.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.lampiaoguia.backend.model.Avaliacao;
-
-import java.util.List;
 
 public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Integer> {
 	
