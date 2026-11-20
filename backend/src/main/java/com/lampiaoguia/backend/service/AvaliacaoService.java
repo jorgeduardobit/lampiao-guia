@@ -1,11 +1,13 @@
 package com.lampiaoguia.backend.service;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.lampiaoguia.backend.dto.MediaAvaliacoesDTO;
 import com.lampiaoguia.backend.model.Avaliacao;
 import com.lampiaoguia.backend.model.Servico;
 import com.lampiaoguia.backend.model.StatusServicoEnum;
@@ -40,7 +42,7 @@ public class AvaliacaoService {
 		if (servico.getStatus() != StatusServicoEnum.aprovado) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Só é possível avaliar serviços aprovados");
 		}
-		if (usuarioRepository.existsById(avaliacao.getUsuarioId())) {
+		if (!usuarioRepository.existsById(avaliacao.getUsuarioId())) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado");
 		}
 		if (repository.existsByUsuarioIdAndServicoId(avaliacao.getUsuarioId(), avaliacao.getServicoId())) {
@@ -80,6 +82,33 @@ public class AvaliacaoService {
 		verificarAutor(avaliacao, usuarioId);
 		repository.delete(avaliacao);
 	}
+	
+	//READ: calcula a média geral e por critério de um serviço
+	public MediaAvaliacoesDTO calcularMedia(Integer servicoId) {
+		List<Avaliacao> avaliacoes = listarPorServico(servicoId);
+		if (avaliacoes.isEmpty()) {
+			return new MediaAvaliacoesDTO(0, null, null, null, null, null, null);
+		}
+		
+		double identidadeGenero = media(avaliacoes.stream().mapToInt(Avaliacao::getNotaIdentidadeGenero));
+		double naoDiscriminacao = media(avaliacoes.stream().mapToInt(Avaliacao::getNotaNaoDiscriminacao));
+		double inclusao = media(avaliacoes.stream().mapToInt(Avaliacao::getNotaInclusao));
+		double acolhimento = media(avaliacoes.stream().mapToInt(Avaliacao::getNotaAcolhimento));
+		double atencaoResolucao = media (avaliacoes.stream().mapToInt(Avaliacao::getNotaAtencaoResolucao));
+		double geral = (identidadeGenero + naoDiscriminacao + inclusao + acolhimento + atencaoResolucao) / 5;
+		
+		return new MediaAvaliacoesDTO(avaliacoes.size(), arredondar(geral), arredondar(identidadeGenero),
+				arredondar(naoDiscriminacao), arredondar(inclusao), arredondar(acolhimento), arredondar(atencaoResolucao));
+	}
+	
+	private double media(IntStream notas) {
+		return notas.average().orElse(0);
+	}
+	
+	private double arredondar(double valor) {
+		return Math.round(valor * 10.0) / 10.0;
+	}
+	
 	
 	private Avaliacao buscarPorId(Integer id) {
 		return repository.findById(id)
