@@ -3,10 +3,12 @@ package com.lampiaoguia.backend.service;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.lampiaoguia.backend.model.PerfilEnum;
 import com.lampiaoguia.backend.model.Usuario;
+import com.lampiaoguia.backend.repository.AvaliacaoRepository;
 import com.lampiaoguia.backend.repository.UsuarioRepository;
 
 @Service
@@ -14,10 +16,12 @@ public class UsuarioService {
 	
 	private final UsuarioRepository repository;
 	private final PasswordEncoder passwordEncoder;
+	private final AvaliacaoRepository avaliacaoRepository;
 	
-	public UsuarioService(UsuarioRepository repository, PasswordEncoder passwordEncoder) {
+	public UsuarioService(UsuarioRepository repository, PasswordEncoder passwordEncoder, AvaliacaoRepository avaliacaoRepository) {
 		this.repository = repository;
 		this.passwordEncoder = passwordEncoder;
+		this.avaliacaoRepository = avaliacaoRepository;
 	}
 	
 
@@ -59,8 +63,12 @@ public class UsuarioService {
 	}
 	
 	// DELETE: exclui a conta
-	public void excluir(Integer id) {
+	@Transactional
+	public void excluir(Integer id, boolean apagarAvaliacoes) {
 		Usuario usuario = buscarPorId(id);
+		if (apagarAvaliacoes) {
+			avaliacaoRepository.deleteByUsuarioId(id);
+		}
 		repository.delete(usuario);
 	}
 	

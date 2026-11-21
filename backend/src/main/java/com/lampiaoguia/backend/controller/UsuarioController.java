@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,8 +43,9 @@ public class UsuarioController {
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void excluir(@PathVariable Integer id) {
-		service.excluir(id);
+	public void excluir(@PathVariable Integer id,
+						@RequestParam(defaultValue = "false") boolean apagarAvaliacoes) {
+		service.excluir(id, apagarAvaliacoes);
 	}
 
 }
