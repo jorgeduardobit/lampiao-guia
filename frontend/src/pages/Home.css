@@ -1,0 +1,56 @@
+.home {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+
+    padding: 60px 8%;
+    background-color: var(--cor-fundo);
+}
+
+.home-conteudo {
+    max-width: 750px;
+}
+
+.home h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.home p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 580px;
+}
+
+.home {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-conteudo {
+    position: relative;
+    z-index: 1;
+}
+
+.home-faixa {
+    position: absolute;
+    top: -40px;
+    right: -50px;
+
+    width: 520px;
+    height: 580px;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .home-faixa {
+        width: 370px;
+        height: 430px;
+        top: -100px;
+        right: -220px;
+    }
+}
