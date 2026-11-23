@@ -43,6 +43,17 @@ public class UsuarioService {
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 	}
 	
+	// LOGIN: confere e-mail e senha e devolve o usuário
+	public Usuario autenticar(String email, String senha) {
+		Usuario usuario = repository.findByEmail(email)
+			.orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "E-mail ou senha inválidos"));
+		if (senha == null || !passwordEncoder.matches(senha, usuario.getSenha())) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "E-mail ou senha inválidos");
+		}
+		return usuario;
+	}
+
+
 	// UPDATE: troca nome, e-mail e (se vier uma nova) a senha
 	public Usuario atualizar(Integer id, Usuario dados) {
 		Usuario usuario = buscarPorId(id);
