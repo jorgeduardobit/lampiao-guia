@@ -1,0 +1,57 @@
+.barra-busca {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.barra-busca label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.barra-busca-campo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 18px 26px;
+  background-color: #F6EEDC;
+  border: none;
+  border-radius: 999px;
+}
+
+.barra-busca-campo span {
+  color: #3B2018;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.barra-busca-campo input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #3B2018;
+  font-size: 1rem;
+}
+
+.barra-busca-campo input::placeholder {
+  color: rgba(59, 32, 24, 0.72);
+}
+
+.barra-busca-campo:focus-within {
+  outline: 3px solid #F5C443;
+  outline-offset: 4px;
+}
+
+.barra-busca-teste {
+  color: #FFF5E2;
+  font-size: 0.95rem;
+}
