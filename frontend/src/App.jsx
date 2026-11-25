@@ -49,8 +49,8 @@ function App() {
             <Routes>
               <Route path="/cadastro" element={<Cadastro />} />
               <Route
-              path="/servicos/:id"
-              element={<DetalhesServico />}
+                path="/servicos/:id"
+                element={<DetalhesServico usuario={usuario} />}
               />
                 <Route path="/" element={<Home />} />
 

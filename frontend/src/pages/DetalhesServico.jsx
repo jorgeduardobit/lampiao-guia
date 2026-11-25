@@ -1,12 +1,13 @@
-
+import FormularioAvaliacao from '../components/FormularioAvaliacao';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import ResumoAvaliacoes from '../components/ResumoAvaliacoes';
 import './DetalhesServico.css';
+import ListaAvaliacoes from '../components/ListaAvaliacoes';
 
-function DetalhesServico() {
+function DetalhesServico({ usuario }) {
     const { id } = useParams();
-
+    const [versaoAvaliacoes, setVersaoAvaliacoes] = useState(0);
     const [servico, setServico] = useState(null);
     const [carregando, setCarregando] = useState(true);
     const [erro, setErro] = useState('');
@@ -80,7 +81,27 @@ function DetalhesServico() {
                             </p>
                         </section>
 
-                        <ResumoAvaliacoes servicoId={id} />
+                        <ResumoAvaliacoes
+                            key={versaoAvaliacoes}
+                            servicoId={id}
+                        />
+
+                        <ListaAvaliacoes
+                            key={`lista-${versaoAvaliacoes}`}
+                            servicoId={id}
+                            usuario={usuario}
+                            onAlterada={() => {
+                                setVersaoAvaliacoes((anterior) => anterior + 1);
+                            }}
+                        />
+
+                        <FormularioAvaliacao
+                            servicoId={id}
+                            usuario={usuario}
+                            onPublicada={() => {
+                                setVersaoAvaliacoes((anterior) => anterior + 1);
+                            }}
+                        />
                     </div>
 
                     <aside className="detalhes-lateral">

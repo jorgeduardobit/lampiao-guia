@@ -1,0 +1,35 @@
+
+.editor-avaliacao {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.editor-avaliacao h3 {
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.editor-avaliacao-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.editor-avaliacao-acoes button {
+    margin-top: 0;
+}
+
+.editor-avaliacao .editor-avaliacao-cancelar {
+    background: transparent;
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-borda);
+}
+
+.editor-avaliacao .editor-avaliacao-cancelar:hover {
+    background: var(--cor-fundo);
+}
