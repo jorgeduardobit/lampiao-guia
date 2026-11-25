@@ -8,9 +8,19 @@ function Home() {
 const [servicos, setServicos] = useState([]);
 const [carregando, setCarregando] = useState(true);
 const [erro, setErro] = useState('');
+const [buscaAplicada, setBuscaAplicada] = useState('');
 
 useEffect(() => {
-    fetch('http://localhost:8080/servicos')
+    const controller = new AbortController();
+
+    setCarregando(true);
+    setErro('');
+
+    const url = buscaAplicada
+        ? `http://localhost:8080/servicos?nome=${encodeURIComponent(buscaAplicada)}`
+        : 'http://localhost:8080/servicos';
+
+    fetch(url, { signal: controller.signal })
         .then((resposta) => {
             if (!resposta.ok) {
                 throw new Error('Erro ao buscar serviços');
@@ -21,13 +31,19 @@ useEffect(() => {
         .then((dados) => {
             setServicos(dados);
         })
-        .catch(() => {
-            setErro('Não foi possível carregar os serviços.');
+        .catch((falha) => {
+            if (falha.name !== 'AbortError') {
+                setErro('Não foi possível carregar os serviços.');
+            }
         })
         .finally(() => {
-            setCarregando(false);
+            if (!controller.signal.aborted) {
+                setCarregando(false);
+            }
         });
-}, []);
+
+    return () => controller.abort();
+}, [buscaAplicada]);
 
   return (
     <main className="home">
@@ -43,7 +59,7 @@ useEffect(() => {
             Serviços avaliados pela comunidade LGBTQIA+
           </p>
 
-          <BarraBusca />
+          <BarraBusca onBuscar={setBuscaAplicada} />
         </div>
 
         <div className="home-coluna-ilustracao">
@@ -100,7 +116,11 @@ useEffect(() => {
 )}
 
 {!carregando && !erro && servicos.length === 0 && (
-    <p>Nenhum serviço aprovado encontrado.</p>
+    <p>
+    {buscaAplicada
+        ? `Nenhum serviço encontrado para "${buscaAplicada}".`
+        : 'Nenhum serviço aprovado encontrado.'}
+    </p>
 )}
 
 {!carregando && !erro && servicos.length > 0 && (

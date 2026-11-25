@@ -25,10 +25,23 @@
   border-radius: 999px;
 }
 
-.barra-busca-campo span {
-  color: #3B2018;
-  font-size: 2rem;
-  line-height: 1;
+.barra-busca-campo button {
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+    background: transparent;
+    border: none;
+
+    color: #3B2018;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.barra-busca-campo button:focus-visible {
+    outline: 2px solid var(--cor-ambar);
+    outline-offset: 4px;
 }
 
 .barra-busca-campo input {

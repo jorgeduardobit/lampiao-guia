@@ -1,33 +1,38 @@
+
 import { useState } from 'react';
 import './BarraBusca.css';
 
-function BarraBusca() {
+function BarraBusca({ onBuscar }) {
     const [termo, setTermo] = useState('');
 
+    function enviarBusca(evento) {
+        evento.preventDefault();
+        onBuscar(termo.trim());
+    }
+
     return (
-        <div className="barra-busca">
+        <form className="barra-busca" onSubmit={enviarBusca}>
             <label htmlFor="busca-servicos">
                 Encontre um serviço
             </label>
 
             <div className="barra-busca-campo">
-                <span aria-hidden="true">⌕</span>
+                <button
+                    type="submit"
+                    aria-label="Pesquisar serviços"
+                >
+                    ⌕
+                </button>
 
                 <input
-                id="busca-servicos"
-                type="search"
-                placeholder="Buscar pelo nome do serviço..."
-                value={termo}
-                onChange={(evento) => setTermo(evento.target.value)}
+                    id="busca-servicos"
+                    type="search"
+                    placeholder="Buscar pelo nome do serviço..."
+                    value={termo}
+                    onChange={(evento) => setTermo(evento.target.value)}
                 />
             </div>
-
-            {termo && (
-                <small className="barra-busca-teste">
-                    Você digitou: {termo}
-                </small>
-            )}
-</div>
+        </form>
     );
 }
 
