@@ -175,3 +175,78 @@
         transform: none;
     }
 }
+
+
+/* Ajustes da Home para celulares */
+
+@media (max-width: 768px) {
+    .home-hero {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        min-height: auto;
+        padding: 36px 20px 118px;
+    }
+
+    .home-coluna-texto {
+        width: 100%;
+        max-width: 100%;
+        transform: none;
+    }
+
+    .home-logo-imagem {
+        width: 100%;
+        max-width: 285px;
+        margin: 0 auto 28px;
+    }
+
+    .home-descricao {
+        max-width: 330px;
+        margin: 0 0 20px;
+        font-size: 1.5rem;
+        line-height: 1.15;
+    }
+
+    .home-hero .barra-busca {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    .home-coluna-ilustracao {
+        width: 100%;
+        margin: 28px 0 -56px;
+        justify-content: center;
+        transform: none;
+    }
+
+    .home-lampiao {
+        width: min(82vw, 265px);
+        max-width: none;
+        height: auto;
+        transform: none;
+    }
+
+    .home-faixas {
+        height: 125px;
+        bottom: 0;
+    }
+
+    .home-listagem {
+        padding: 42px 20px 70px;
+    }
+}
+.home-servicos-lista {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 32px;
+}
+
+.home-listagem h2::before {
+    content: '✦';
+    color: var(--cor-ambar);
+    margin-right: 14px;
+    font-family: Georgia, serif;
+}

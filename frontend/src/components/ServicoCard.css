@@ -1,0 +1,47 @@
+
+.servico-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding: 28px 12px;
+    border-bottom: 1px solid var(--cor-borda);
+
+    transition: background-color 0.2s ease;
+}
+
+.servico-card:first-child {
+    border-top: 1px solid var(--cor-borda);
+}
+
+.servico-card:hover {
+    background-color: rgba(232, 217, 184, 0.45);
+}
+
+.servico-card h3 {
+    margin: 0 0 8px;
+
+    font-family: var(--fonte-destaque);
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+
+    color: var(--cor-texto);
+}
+
+.home-listagem .servico-card p {
+    margin: 0;
+
+    font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--cor-borda);
+}
+
+.servico-card-seta {
+    font-size: 32px;
+    color: var(--cor-vermelho);
+    flex-shrink: 0;
+}

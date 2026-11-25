@@ -1,7 +1,34 @@
 import BarraBusca from '../components/BarraBusca';
 import './Home.css';
+import ServicoCard from '../components/ServicoCard';
+import { useState, useEffect } from 'react';
+
 
 function Home() {
+const [servicos, setServicos] = useState([]);
+const [carregando, setCarregando] = useState(true);
+const [erro, setErro] = useState('');
+
+useEffect(() => {
+    fetch('http://localhost:8080/servicos')
+        .then((resposta) => {
+            if (!resposta.ok) {
+                throw new Error('Erro ao buscar serviços');
+            }
+
+            return resposta.json();
+        })
+        .then((dados) => {
+            setServicos(dados);
+        })
+        .catch(() => {
+            setErro('Não foi possível carregar os serviços.');
+        })
+        .finally(() => {
+            setCarregando(false);
+        });
+}, []);
+
   return (
     <main className="home">
       <section className="home-hero">
@@ -63,6 +90,31 @@ function Home() {
         <p>
           Encontre serviços e conheça as experiências compartilhadas pela comunidade.
         </p>
+          
+{carregando && (
+    <p>Carregando serviços...</p>
+)}
+
+{erro && (
+    <p role="alert">{erro}</p>
+)}
+
+{!carregando && !erro && servicos.length === 0 && (
+    <p>Nenhum serviço aprovado encontrado.</p>
+)}
+
+{!carregando && !erro && servicos.length > 0 && (
+    <div className="home-servicos-lista">
+        {servicos.map((servico) => (
+            <ServicoCard
+                key={servico.id}
+                servico={servico}
+            />
+        ))}
+    </div>
+)}
+
+
       </section>
     </main>
   );
