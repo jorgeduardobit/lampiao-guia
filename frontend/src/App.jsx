@@ -1,9 +1,12 @@
 
 import { Routes, Route } from 'react-router';
-
+import { useState } from 'react';
 import Header from './components/Header';
 import Home from './pages/Home';
 import './App.css';
+import DetalhesServico from './pages/DetalhesServico';
+import Cadastro from './pages/Cadastro';
+import Login from './pages/Login';
 
 function PaginaProvisoria({ titulo }) {
     return (
@@ -15,11 +18,40 @@ function PaginaProvisoria({ titulo }) {
 }
 
 function App() {
+
+    const [usuario, setUsuario] = useState(() => {
+        try {
+            const salvo = sessionStorage.getItem('lampiaoUsuario');
+            return salvo ? JSON.parse(salvo) : null;
+        } catch {
+            return null;
+        }
+    });
+
+    function fazerLogin(usuarioLogado) {
+        sessionStorage.setItem(
+            'lampiaoUsuario',
+            JSON.stringify(usuarioLogado)
+        );
+
+        setUsuario(usuarioLogado);
+    }
+
+    function fazerLogout() {
+        sessionStorage.removeItem('lampiaoUsuario');
+        setUsuario(null);
+    }
+
     return (
         <>
-            <Header escuro />
+            <Header escuro usuario={usuario} />
 
             <Routes>
+              <Route path="/cadastro" element={<Cadastro />} />
+              <Route
+              path="/servicos/:id"
+              element={<DetalhesServico />}
+              />
                 <Route path="/" element={<Home />} />
 
                 <Route
@@ -34,7 +66,13 @@ function App() {
 
                 <Route
                     path="/login"
-                    element={<PaginaProvisoria titulo="Entrar" />}
+                    element={
+                        <Login
+                            usuario={usuario}
+                            onLogin={fazerLogin}
+                            onLogout={fazerLogout}
+                        />
+                            }
                 />
             </Routes>
         </>

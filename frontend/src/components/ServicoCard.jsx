@@ -1,9 +1,12 @@
-
+import { Link } from 'react-router';
 import './ServicoCard.css';
 
 function ServicoCard({ servico }) {
     return (
-        <article className="servico-card">
+        <Link
+            to={`/servicos/${servico.id}`}
+            className="servico-card"
+        >
             <div className="servico-card-conteudo">
                 <h3>{servico.nome}</h3>
 
@@ -15,7 +18,7 @@ function ServicoCard({ servico }) {
             <span className="servico-card-seta" aria-hidden="true">
                 ↗
             </span>
-        </article>
+        </Link>
     );
 }
 

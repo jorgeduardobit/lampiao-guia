@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import './Header.css';
 
-function Header({ escuro = false }) {
+function Header({ escuro = false, usuario }) {
     const [menuAberto, setMenuAberto] = useState(false);
 
     function alternarMenu() {
@@ -78,7 +78,7 @@ function Header({ escuro = false }) {
                     className="header-botao"
                     onClick={fecharMenu}
                 >
-                    Entrar
+                    {usuario ? usuario.nome : 'Entrar'}
                 </NavLink>
             </nav>
 

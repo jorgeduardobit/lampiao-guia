@@ -1,0 +1,94 @@
+
+.cadastro-pagina {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 60px 20px;
+    background-color: var(--cor-fundo);
+}
+
+.cadastro-container {
+    width: 100%;
+    max-width: 520px;
+
+    padding: 36px;
+    border: 4px double var(--cor-borda);
+    border-radius: 12px;
+}
+
+.cadastro-container h1 {
+    margin: 0 0 16px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    line-height: 1.15;
+}
+
+.cadastro-container p {
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+}
+
+.cadastro-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.cadastro-container label {
+    font-family: var(--fonte-destaque);
+    font-weight: 600;
+}
+
+.cadastro-container input {
+    width: 100%;
+    padding: 13px 16px;
+    margin-bottom: 10px;
+
+    background-color: #FFF8EB;
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+}
+
+.cadastro-container input:focus-visible {
+    outline: 3px solid var(--cor-ambar);
+    outline-offset: 2px;
+}
+
+.cadastro-container button {
+    padding: 15px 20px;
+    margin-top: 10px;
+
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+}
+
+.cadastro-container button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cadastro-erro {
+    color: var(--cor-vermelho);
+}
+
+.cadastro-sucesso {
+    color: var(--cor-verde);
+}
+
+@media (max-width: 600px) {
+    .cadastro-container {
+        padding: 24px;
+    }
+}

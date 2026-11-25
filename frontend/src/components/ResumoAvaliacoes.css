@@ -1,0 +1,33 @@
+
+.resumo-avaliacoes {
+    margin-top: 40px;
+}
+
+.resumo-avaliacoes h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-texto);
+}
+
+.resumo-avaliacoes-nota {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 24px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+
+    background-color: var(--cor-superficie);
+}
+
+.resumo-avaliacoes-nota strong {
+    font-family: var(--fonte-titulo);
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--cor-texto);
+}
+
+.resumo-avaliacoes-nota p {
+    font-family: var(--fonte-texto);
+    color: var(--cor-borda);
+}

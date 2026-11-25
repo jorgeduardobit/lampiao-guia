@@ -1,0 +1,113 @@
+
+.login-pagina {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 520px;
+    padding: 36px;
+    border: 4px double var(--cor-borda);
+    border-radius: 12px;
+}
+
+.login-container h1 {
+    margin: 0 0 16px;
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+}
+
+.login-container p {
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.login-container label {
+    font-family: var(--fonte-destaque);
+    font-weight: 600;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 13px 16px;
+    background-color: #FFF8EB;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    color: var(--cor-texto);
+}
+
+.login-container button {
+    padding: 14px 20px;
+    margin-top: 12px;
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-container button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.login-container a {
+    color: var(--cor-roxo);
+    font-weight: 700;
+}
+
+.login-erro {
+    color: var(--cor-vermelho);
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        padding: 24px;
+    }
+}
+.login-acoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.login-container .login-link-explorar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 20px;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    color: var(--cor-texto);
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-link-explorar:hover {
+    background-color: var(--cor-superficie);
+}
+
+.login-acoes button {
+    margin-top: 0;
+}

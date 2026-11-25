@@ -45,3 +45,11 @@
     color: var(--cor-vermelho);
     flex-shrink: 0;
 }
+.servico-card {
+    text-decoration: none;
+}
+
+.servico-card:focus-visible {
+    outline: 3px solid var(--cor-ambar);
+    outline-offset: 3px;
+}

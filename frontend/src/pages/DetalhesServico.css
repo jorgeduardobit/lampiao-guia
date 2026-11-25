@@ -1,0 +1,132 @@
+
+.detalhes-pagina {
+    min-height: 85vh;
+    padding: 48px 8% 90px;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.detalhes-voltar {
+    display: inline-block;
+    margin-bottom: 32px;
+
+    color: var(--cor-borda);
+    font-family: var(--fonte-texto);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.detalhes-voltar:hover {
+    text-decoration: underline;
+}
+
+.detalhes-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+.detalhes-principal {
+    min-width: 0;
+}
+
+/* Cabeçalho editorial */
+
+.detalhes-moldura {
+    padding: 30px;
+    border: 4px double var(--cor-borda);
+    border-radius: 12px;
+}
+
+.detalhes-etiqueta {
+    font-family: var(--fonte-destaque);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--cor-borda);
+}
+
+.detalhes-moldura h1 {
+    margin: 16px 0 12px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.detalhes-moldura p {
+    margin: 0;
+    font-family: var(--fonte-texto);
+}
+
+/* Seções de conteúdo */
+
+.detalhes-secao {
+    margin-top: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.detalhes-secao h2 {
+    margin: 0 0 16px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.65rem;
+    font-weight: 400;
+}
+
+.detalhes-secao p {
+    font-family: var(--fonte-texto);
+    line-height: 1.7;
+}
+
+/* Informações laterais */
+
+.detalhes-lateral {
+    padding: 28px;
+
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    background-color: var(--cor-superficie);
+}
+
+.detalhes-lateral h2 {
+    margin: 0 0 24px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.detalhes-lateral p {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    font-family: var(--fonte-texto);
+    line-height: 1.5;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .detalhes-pagina {
+        padding: 32px 6% 70px;
+    }
+
+    .detalhes-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .detalhes-moldura {
+        padding: 22px;
+    }
+
+    .detalhes-lateral {
+        padding: 22px;
+    }
+}
