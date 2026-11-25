@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link, NavLink } from 'react-router';
 import './Header.css';
 
 function Header({ escuro = false }) {
@@ -16,13 +17,13 @@ function Header({ escuro = false }) {
     return (
         <header className={`header ${escuro ? 'header--escuro' : ''}`}>
 
-            <a href="/" className="header-logo-texto">
+            <Link to="/" className="header-logo-texto">
                 <img
                     src="/images/logo-lampiao-guia-creme.png"
                     alt="Lampião Guia"
                     className="header-logo-imagem"
                 />
-            </a>
+            </Link>
 
             <button
                 type="button"
@@ -41,21 +42,44 @@ function Header({ escuro = false }) {
                 id="menu-principal"
                 className={`header-nav ${menuAberto ? 'header-nav--aberto' : ''}`}
             >
-                <a href="/" className="header-link ativo" onClick={fecharMenu}>
+                <NavLink
+                    to="/"
+                    end
+                    className={({ isActive }) =>
+                        `header-link ${isActive ? 'ativo' : ''}`
+                    }
+                    onClick={fecharMenu}
+                >
                     Início
-                </a>
+                </NavLink>
 
-                <a href="/servicos" className="header-link" onClick={fecharMenu}>
+                <NavLink
+                    to="/servicos"
+                    className={({ isActive }) =>
+                        `header-link ${isActive ? 'ativo' : ''}`
+                    }
+                    onClick={fecharMenu}
+                >
                     Serviços
-                </a>
+                </NavLink>
 
-                <a href="/sobre" className="header-link" onClick={fecharMenu}>
+                <NavLink
+                    to="/sobre"
+                    className={({ isActive }) =>
+                        `header-link ${isActive ? 'ativo' : ''}`
+                    }
+                    onClick={fecharMenu}
+                >
                     Sobre
-                </a>
+                </NavLink>
 
-                <a href="/login" className="header-botao" onClick={fecharMenu}>
+                <NavLink
+                    to="/login"
+                    className="header-botao"
+                    onClick={fecharMenu}
+                >
                     Entrar
-                </a>
+                </NavLink>
             </nav>
 
         </header>
