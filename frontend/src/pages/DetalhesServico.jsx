@@ -1,9 +1,10 @@
 import FormularioAvaliacao from '../components/FormularioAvaliacao';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import ResumoAvaliacoes from '../components/ResumoAvaliacoes';
 import './DetalhesServico.css';
 import ListaAvaliacoes from '../components/ListaAvaliacoes';
+import EditarServico from '../components/EditarServico';
 
 function DetalhesServico({ usuario }) {
     const { id } = useParams();
@@ -11,6 +12,11 @@ function DetalhesServico({ usuario }) {
     const [servico, setServico] = useState(null);
     const [carregando, setCarregando] = useState(true);
     const [erro, setErro] = useState('');
+    const [editando, setEditando] = useState(false);
+    const [mensagem, setMensagem] = useState('');
+    const navigate = useNavigate();
+    const [arquivando, setArquivando] = useState(false);
+    const [erroArquivamento, setErroArquivamento] = useState('');
 
     useEffect(() => {
         const controller = new AbortController();
@@ -43,11 +49,46 @@ function DetalhesServico({ usuario }) {
                 }
             });
 
+        
         return () => controller.abort();
     }, [id]);
 
+    async function arquivarServico() {
+        const confirmou = window.confirm(
+            `Tem certeza de que deseja arquivar "${servico.nome}"?`
+        );
+
+        if (!confirmou) return;
+
+        setArquivando(true);
+        setErroArquivamento('');
+
+        try {
+            const resposta = await fetch(
+                `http://localhost:8080/servicos/${id}/arquivar?adminId=${usuario.id}`,
+                {
+                    method: 'PATCH'
+                }
+            );
+
+            if (!resposta.ok) {
+                throw new Error('Erro ao arquivar estabelecimento');
+            }
+
+            navigate('/');
+
+        } catch {
+            setErroArquivamento(
+                'Não foi possível arquivar o estabelecimento.'
+            );
+        } finally {
+            setArquivando(false);
+        }
+    }
+
     return (
         <main className="detalhes-pagina">
+
             <Link to="/" className="detalhes-voltar">
                 ← Voltar aos serviços
             </Link>
@@ -70,7 +111,53 @@ function DetalhesServico({ usuario }) {
                             <p>
                                 {servico.categoria} • {servico.cidade}, {servico.estado}
                             </p>
-                        </section>
+
+                            {usuario?.perfil === 'admin' && (
+                                <button
+                                    type="button"
+                                    className="detalhes-botao-editar"
+                                    onClick={() => {
+                                        setMensagem('');
+                                        setEditando(true);
+                                    }}
+                                >
+                                    
+                                Editar estabelecimento
+                            </button>
+                        )}
+
+                        {usuario?.perfil === 'admin' &&
+                            servico.status === 'aprovado' && (
+                                <button
+                                    type="button"
+                                    className="detalhes-botao-arquivar"
+                                    onClick={arquivarServico}
+                                    disabled={arquivando}
+                                >
+                                    {arquivando
+                                        ? 'Arquivando...'
+                                        : 'Arquivar estabelecimento'}
+                                </button>
+                            )}
+
+                        {erroArquivamento && (
+                            <p role="alert">{erroArquivamento}</p>
+                        )}
+                    </section>
+
+                        {mensagem && <p role="status">{mensagem}</p>}
+
+                        {editando && usuario?.perfil === 'admin' && (
+                            <EditarServico
+                                servico={servico}
+                                onCancelar={() => setEditando(false)}
+                                onSalvo={(servicoAtualizado) => {
+                                    setServico(servicoAtualizado);
+                                    setEditando(false);
+                                    setMensagem('Estabelecimento atualizado com sucesso!');
+                                }}
+                            />
+                        )}
 
                         <section className="detalhes-secao">
                             <h2>Sobre o serviço</h2>

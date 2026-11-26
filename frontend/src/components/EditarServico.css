@@ -1,0 +1,73 @@
+
+.editar-servico {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin-top: 24px;
+    padding: 24px;
+
+    background-color: var(--cor-superficie);
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+}
+
+.editar-servico h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.editar-servico-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editar-servico-campo label {
+    font-family: var(--fonte-destaque);
+    font-weight: 600;
+}
+
+.editar-servico-campo label span {
+    color: var(--cor-ambar);
+}
+
+.editar-servico-campo input,
+.editar-servico-campo textarea {
+    width: 100%;
+    padding: 12px;
+
+    background-color: #FFF8EB;
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    font-family: var(--fonte-texto);
+}
+
+.editar-servico-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.editar-servico-acoes button {
+    padding: 12px 20px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.editar-servico-acoes button:last-child {
+    background-color: transparent;
+}
+
+.editar-servico-acoes button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
