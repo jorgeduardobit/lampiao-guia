@@ -39,7 +39,8 @@ function Login({ usuario, onLogin, onLogout }) {
 
             const usuarioLogado = {
                 id: dados.id,
-                nome: dados.nome
+                nome: dados.nome,
+                perfil: dados.perfil
             };
 
             onLogin(usuarioLogado);

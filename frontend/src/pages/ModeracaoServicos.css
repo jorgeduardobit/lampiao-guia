@@ -1,0 +1,66 @@
+
+.moderacao-pagina {
+    min-height: 85vh;
+    padding: 60px 8%;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.moderacao-pagina > h1 {
+    margin-bottom: 16px;
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.moderacao-pagina p {
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+}
+
+.moderacao-lista {
+    display: grid;
+    gap: 24px;
+    margin-top: 36px;
+}
+
+.moderacao-item {
+    padding: 28px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    background-color: var(--cor-superficie);
+}
+
+.moderacao-item h2 {
+    margin-bottom: 12px;
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+}
+
+.moderacao-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.moderacao-acoes button {
+    padding: 12px 20px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.moderacao-acoes .moderacao-rejeitar {
+    background-color: transparent;
+    color: var(--cor-vermelho);
+    border-color: var(--cor-vermelho);
+}
+
+.moderacao-acoes button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

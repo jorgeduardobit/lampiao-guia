@@ -7,6 +7,7 @@ import './App.css';
 import DetalhesServico from './pages/DetalhesServico';
 import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
+import ModeracaoServicos from './pages/ModeracaoServicos';
 
 function PaginaProvisoria({ titulo }) {
     return (
@@ -48,14 +49,22 @@ function App() {
 
             <Routes>
                 <Route
+                    path="/moderacao"
+                    element={<ModeracaoServicos usuario={usuario} />}
+                
+                />
+                <Route
                     path="/sugerir"
                     element={<SugerirServico usuario={usuario} />}
                 />
+
               <Route path="/cadastro" element={<Cadastro />} />
+              
               <Route
                 path="/servicos/:id"
                 element={<DetalhesServico usuario={usuario} />}
               />
+              
                 <Route path="/" element={<Home />} />
 
                 <Route
