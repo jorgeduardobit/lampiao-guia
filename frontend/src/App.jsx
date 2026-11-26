@@ -1,4 +1,4 @@
-
+import SugerirServico from './pages/SugerirServico';
 import { Routes, Route } from 'react-router';
 import { useState } from 'react';
 import Header from './components/Header';
@@ -47,6 +47,10 @@ function App() {
             <Header escuro usuario={usuario} />
 
             <Routes>
+                <Route
+                    path="/sugerir"
+                    element={<SugerirServico usuario={usuario} />}
+                />
               <Route path="/cadastro" element={<Cadastro />} />
               <Route
                 path="/servicos/:id"
