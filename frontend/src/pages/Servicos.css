@@ -1,0 +1,167 @@
+
+/* Página de serviços */
+
+.servicos-pagina {
+    min-height: 85vh;
+    padding: 64px 8% 100px;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.servicos-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+
+.servicos-cabecalho {
+    max-width: 780px;
+    margin-bottom: 44px;
+}
+
+.servicos-etiqueta {
+    display: inline-block;
+    margin-bottom: 16px;
+
+    color: var(--cor-vermelho);
+    font-family: var(--fonte-destaque);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.servicos-cabecalho h1 {
+    margin: 0 0 20px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.servicos-cabecalho p {
+    max-width: 650px;
+    margin: 0;
+
+    font-family: var(--fonte-texto);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Busca */
+
+.servicos-busca {
+    max-width: 650px;
+    margin-bottom: 64px;
+}
+
+/* Resultados */
+
+.servicos-resultados-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding-bottom: 24px;
+}
+
+.servicos-resultados-cabecalho h2 {
+    margin: 0 0 8px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400;
+}
+
+.servicos-resultados-cabecalho p {
+    margin: 0;
+
+    color: var(--cor-borda);
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+}
+
+/* Link de sugestão */
+
+.servicos-sugerir {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 20px;
+
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: var(--fonte-destaque);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: background-color 0.2s ease;
+}
+
+.servicos-sugerir:hover {
+    background-color: var(--cor-superficie);
+}
+
+.servicos-sugerir:focus-visible {
+    outline: 3px solid var(--cor-ambar);
+    outline-offset: 3px;
+}
+
+/* Lista de estabelecimentos */
+
+.servicos-lista {
+    width: 100%;
+}
+
+.servicos-lista .servico-card p {
+    margin: 0;
+    color: var(--cor-borda);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.servicos-vazio {
+    padding: 28px 0;
+
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .servicos-pagina {
+        padding: 40px 20px 70px;
+    }
+
+    .servicos-cabecalho {
+        margin-bottom: 32px;
+    }
+
+    .servicos-busca {
+        margin-bottom: 44px;
+    }
+
+    .servicos-resultados-cabecalho {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicos-sugerir {
+        width: 100%;
+    }
+}

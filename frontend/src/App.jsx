@@ -9,6 +9,7 @@ import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import ModeracaoServicos from './pages/ModeracaoServicos';
 import MeuPerfil from './pages/MeuPerfil';
+import Servicos from './pages/Servicos';
 
 function PaginaProvisoria({ titulo }) {
     return (
@@ -79,9 +80,9 @@ function App() {
               
                 <Route path="/" element={<Home />} />
 
-                <Route
+               <Route
                     path="/servicos"
-                    element={<PaginaProvisoria titulo="Serviços" />}
+                    element={<Servicos />}
                 />
 
                 <Route
