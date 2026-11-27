@@ -8,6 +8,7 @@ import DetalhesServico from './pages/DetalhesServico';
 import Cadastro from './pages/Cadastro';
 import Login from './pages/Login';
 import ModeracaoServicos from './pages/ModeracaoServicos';
+import MeuPerfil from './pages/MeuPerfil';
 
 function PaginaProvisoria({ titulo }) {
     return (
@@ -48,6 +49,10 @@ function App() {
             <Header escuro usuario={usuario} />
 
             <Routes>
+                <Route
+                    path="/perfil"
+                    element={<MeuPerfil usuario={usuario} />}
+                />
                 <Route
                     path="/moderacao"
                     element={<ModeracaoServicos usuario={usuario} />}

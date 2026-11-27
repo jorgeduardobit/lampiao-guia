@@ -1,0 +1,73 @@
+
+.perfil-pagina {
+    min-height: 85vh;
+    padding: 60px 20px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.perfil-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 36px;
+
+    border: 4px double var(--cor-borda);
+    border-radius: 12px;
+}
+
+.perfil-container h1 {
+    margin: 0 0 16px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    font-weight: 400;
+}
+
+.perfil-container > p {
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+}
+
+.perfil-informacoes {
+    margin-top: 32px;
+}
+
+.perfil-campo {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.perfil-campo strong {
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+}
+
+.perfil-campo p {
+    margin: 8px 0 0;
+    font-family: var(--fonte-texto);
+}
+
+.perfil-link {
+    display: inline-flex;
+    margin-top: 20px;
+    padding: 14px 24px;
+
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+
+    border-radius: 8px;
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.perfil-link:hover {
+    background-color: var(--cor-superficie);
+}
+
+@media (max-width: 600px) {
+    .perfil-container {
+        padding: 24px;
+    }
+}
