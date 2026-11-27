@@ -55,10 +55,11 @@ function App() {
                         <MeuPerfil
                             usuario={usuario}
                             onAtualizarUsuario={fazerLogin}
+                            onExcluirConta={fazerLogout}
                         />
-                    }
+                            }
                 />
-                
+
                 <Route
                     path="/moderacao"
                     element={<ModeracaoServicos usuario={usuario} />}

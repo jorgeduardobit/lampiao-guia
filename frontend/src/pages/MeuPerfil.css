@@ -243,3 +243,136 @@
         width: 100%;
     }
 }
+
+/* Exclusão de conta */
+
+.perfil-exclusao {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.perfil-exclusao h2 {
+    margin: 0 0 14px;
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.perfil-exclusao > p {
+    font-family: var(--fonte-texto);
+    line-height: 1.7;
+}
+
+.perfil-botao-excluir {
+    margin-top: 16px;
+    padding: 12px 20px;
+
+    background-color: transparent;
+    color: #A33B2A;
+
+    border: 1px solid #A33B2A;
+    border-radius: 8px;
+
+    font-family: var(--fonte-destaque);
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.perfil-botao-excluir:hover {
+    background-color: #A33B2A;
+    color: #FFF8EB;
+}
+
+/* Confirmação */
+
+.perfil-confirmacao {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    margin-top: 24px;
+    padding: 20px;
+
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+}
+
+.perfil-confirmacao p {
+    margin: 0;
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+}
+
+.perfil-confirmacao label {
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+}
+
+.perfil-confirmacao input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: var(--fonte-texto);
+}
+
+.perfil-confirmacao input:focus {
+    outline: 2px solid var(--cor-ambar);
+    outline-offset: 2px;
+}
+
+/* Botões de confirmação */
+
+.perfil-exclusao-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.perfil-exclusao-acoes button {
+    padding: 12px 18px;
+
+    border-radius: 8px;
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.perfil-confirmar-exclusao {
+    background-color: #A33B2A;
+    color: #FFF8EB;
+    border: 1px solid #A33B2A;
+}
+
+.perfil-cancelar-exclusao {
+    background-color: transparent;
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-borda);
+}
+
+.perfil-exclusao-acoes button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .perfil-exclusao-acoes {
+        flex-direction: column;
+    }
+
+    .perfil-exclusao-acoes button {
+        width: 100%;
+    }
+}
