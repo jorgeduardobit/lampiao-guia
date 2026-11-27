@@ -48,7 +48,11 @@ function App() {
 
     return (
         <>
-            <Header escuro usuario={usuario} />
+            <Header
+                escuro
+                usuario={usuario}
+                onLogout={fazerLogout}
+            />
 
             <Routes>
                <Route

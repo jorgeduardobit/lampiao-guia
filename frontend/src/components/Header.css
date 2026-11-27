@@ -1,66 +1,29 @@
+
+/* Cabeçalho */
+
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    position: relative;
+    z-index: 10;
 
-  padding: 22px 42px;
-  border-bottom: 2px solid rgba(255, 245, 226, 0.65);
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.header-logo-texto {
-  color: #FFF5E2;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-family: var(--fonte-titulo);
-  font-weight: 400;
-}
-
-.header-nav {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  font-family: var(--fonte-destaque);
-  font-weight: 600;
-}
-
-.header-link {
-  color: #FFF5E2;
-  text-decoration: none;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 6px;
-}
-
-.header-link.ativo::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 4px;
-  background-color: #F6C445;
-  border-radius: 999px;
-}
-
-.header-botao {
-  color: #FFF5E2;
-  text-decoration: none;
-  font-weight: 700;
-
-  border: 2px solid #FFF5E2;
-  border-radius: 999px;
-  padding: 10px 20px;
+    padding: 22px 42px;
+    border-bottom: 2px solid rgba(255, 245, 226, 0.65);
 }
 
 .header--escuro {
-  background-color: #2A1714;
+    background-color: #2A1714;
 }
 
-  .header-nav {
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+/* Logo */
 
+.header-logo-texto {
+    color: #FFF5E2;
+    text-decoration: none;
+    font-family: var(--fonte-titulo);
+}
 
 .header-logo-imagem {
     display: block;
@@ -68,13 +31,148 @@
     height: auto;
 }
 
+/* Navegação */
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+
+    font-family: var(--fonte-destaque);
+    font-weight: 600;
+}
+
+.header-link {
+    position: relative;
+    padding-bottom: 6px;
+
+    color: #FFF5E2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.header-link.ativo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    width: 100%;
+    height: 4px;
+
+    background-color: #F6C445;
+    border-radius: 999px;
+}
+
+/* Botão de entrar / conta */
+
+.header-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 20px;
+
+    border: 2px solid #FFF5E2;
+    border-radius: 999px;
+
+    background-color: transparent;
+    color: #FFF5E2;
+
+    font-family: var(--fonte-destaque);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.header-botao:hover {
+    background-color: rgba(255, 245, 226, 0.12);
+}
+
+/* Menu da conta */
+
+.header-conta {
+    position: relative;
+}
+
+.header-conta-botao {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.header-conta-botao::-webkit-details-marker {
+    display: none;
+}
+
+.header-conta-seta {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.header-conta[open] .header-conta-seta {
+    transform: rotate(180deg);
+}
+
+.header-conta-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 245px;
+    padding: 8px;
+
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.header-conta-menu a,
+.header-conta-menu button {
+    display: block;
+    width: 100%;
+    padding: 13px 12px;
+
+    background-color: transparent;
+    border: 0;
+    border-radius: 6px;
+
+    color: var(--cor-texto);
+    font-family: var(--fonte-destaque);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: left;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.header-conta-menu a:hover,
+.header-conta-menu button:hover {
+    background-color: var(--cor-superficie);
+}
+
+.header-conta-menu .header-conta-sair {
+    margin-top: 6px;
+    padding-top: 15px;
+
+    border-top: 1px solid var(--cor-borda);
+    border-radius: 0;
+
+    color: var(--cor-vermelho);
+}
+
+.header-conta-menu a:focus-visible,
+.header-conta-menu button:focus-visible,
+.header-conta-botao:focus-visible {
+    outline: 2px solid var(--cor-ambar);
+    outline-offset: 3px;
+}
 
 /* Botão do menu mobile */
-
-.header {
-    position: relative;
-    z-index: 10;
-}
 
 .header-menu-botao {
     display: none;
@@ -92,14 +190,10 @@
     outline-offset: 4px;
 }
 
-/* Versão mobile */
+/* Responsividade */
 
 @media (max-width: 768px) {
-
     .header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
         padding: 16px 20px;
     }
 
@@ -137,8 +231,20 @@
         width: fit-content;
     }
 
-    .header-botao {
-        display: inline-block;
+    .header-conta {
+        width: 100%;
     }
 
+    .header-conta-menu {
+        position: static;
+
+        width: 100%;
+        margin-top: 12px;
+
+        box-shadow: none;
+    }
+
+    .header-botao {
+        display: inline-flex;
+    }
 }
