@@ -49,10 +49,16 @@ function App() {
             <Header escuro usuario={usuario} />
 
             <Routes>
-                <Route
+               <Route
                     path="/perfil"
-                    element={<MeuPerfil usuario={usuario} />}
+                    element={
+                        <MeuPerfil
+                            usuario={usuario}
+                            onAtualizarUsuario={fazerLogin}
+                        />
+                    }
                 />
+                
                 <Route
                     path="/moderacao"
                     element={<ModeracaoServicos usuario={usuario} />}

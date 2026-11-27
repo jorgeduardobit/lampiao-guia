@@ -1,4 +1,6 @@
 
+/* Página de perfil */
+
 .perfil-pagina {
     min-height: 85vh;
     padding: 60px 20px;
@@ -29,6 +31,8 @@
     line-height: 1.6;
 }
 
+/* Informações do usuário */
+
 .perfil-informacoes {
     margin-top: 32px;
 }
@@ -48,6 +52,159 @@
     font-family: var(--fonte-texto);
 }
 
+/* Botão para abrir a edição */
+
+.perfil-botao {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 13px 24px;
+
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: var(--fonte-destaque);
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.perfil-botao:hover {
+    background-color: var(--cor-superficie);
+}
+
+/* Formulário de edição */
+
+.perfil-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 32px;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--cor-borda);
+}
+
+.perfil-formulario h2 {
+    margin: 0 0 12px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.perfil-formulario label {
+    font-family: var(--fonte-destaque);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.perfil-formulario input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+    margin-bottom: 10px;
+
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+
+    transition: border-color 0.2s ease;
+}
+
+.perfil-formulario input:focus {
+    outline: 2px solid var(--cor-ambar);
+    outline-offset: 2px;
+}
+
+.perfil-formulario input::placeholder {
+    opacity: 0.65;
+}
+
+/* Ações do formulário */
+
+.perfil-formulario-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.perfil-formulario-acoes button {
+    padding: 13px 24px;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: var(--fonte-destaque);
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Salvar alterações */
+
+.perfil-formulario-acoes button:first-child {
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+}
+
+.perfil-formulario-acoes button:first-child:hover {
+    background-color: var(--cor-superficie);
+}
+
+/* Cancelar */
+
+.perfil-formulario-acoes button:last-child {
+    background-color: transparent;
+    color: var(--cor-texto);
+}
+
+.perfil-formulario-acoes button:last-child:hover {
+    background-color: var(--cor-superficie);
+}
+
+.perfil-formulario-acoes button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Mensagens de sucesso e erro */
+
+.perfil-container [role="status"] {
+    margin-top: 20px;
+    padding: 12px 16px;
+
+    border-left: 4px solid var(--cor-ambar);
+    background-color: var(--cor-superficie);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+}
+
+.perfil-container [role="alert"] {
+    margin-top: 16px;
+    font-family: var(--fonte-texto);
+    font-weight: 600;
+}
+
+/* Link para entrar na conta */
+
 .perfil-link {
     display: inline-flex;
     margin-top: 20px;
@@ -57,6 +214,7 @@
     color: var(--cor-texto);
 
     border-radius: 8px;
+
     font-family: var(--fonte-destaque);
     font-weight: 700;
     text-decoration: none;
@@ -66,8 +224,22 @@
     background-color: var(--cor-superficie);
 }
 
+/* Responsividade */
+
 @media (max-width: 600px) {
+    .perfil-pagina {
+        padding: 32px 16px;
+    }
+
     .perfil-container {
         padding: 24px;
+    }
+
+    .perfil-formulario-acoes {
+        flex-direction: column;
+    }
+
+    .perfil-formulario-acoes button {
+        width: 100%;
     }
 }
