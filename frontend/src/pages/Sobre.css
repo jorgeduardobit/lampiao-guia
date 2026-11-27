@@ -1,0 +1,446 @@
+
+/* Página Sobre */
+
+.sobre-pagina {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+/* Cabeçalho */
+
+.sobre-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 390px;
+    padding: 68px 20px 135px;
+
+    background-color: #2A1714;
+    color: #F3E9D2;
+    text-align: center;
+}
+
+.sobre-hero-conteudo {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sobre-etiqueta {
+    font-family: var(--fonte-destaque);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #E9C48B;
+}
+
+.sobre-logo {
+    width: min(280px, 75vw);
+    height: auto;
+    margin: 24px 0 14px;
+}
+
+.sobre-hero h1 {
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.sobre-hero p {
+    margin: 18px 0 0;
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    color: #E8D9B8;
+}
+
+.sobre-faixas {
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    z-index: 1;
+    width: 100%;
+    height: 135px;
+    pointer-events: none;
+}
+
+/* Conteúdo principal */
+
+.sobre-conteudo {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 65px 32px 100px;
+}
+
+.sobre-secao-numero {
+    display: block;
+    margin-bottom: 20px;
+
+    color: var(--cor-vermelho);
+    font-family: var(--fonte-destaque);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+/* História e missão */
+
+.sobre-missao {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: 70px;
+
+    padding: 20px 0 90px;
+}
+
+.sobre-missao h2,
+.sobre-compromisso h2 {
+    margin: 0 0 24px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.sobre-missao-texto p,
+.sobre-compromisso-texto p {
+    margin: 0 0 18px;
+
+    font-family: var(--fonte-texto);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Citação ornamental */
+
+.sobre-citacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    min-height: 300px;
+    padding: 36px;
+
+    border: 4px double var(--cor-borda);
+    border-radius: 12px;
+
+    background-color: var(--cor-superficie);
+    text-align: center;
+}
+
+.sobre-citacao span {
+    color: var(--cor-ambar);
+    font-size: 2rem;
+}
+
+.sobre-citacao blockquote {
+    margin: 0;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+    line-height: 1.4;
+}
+
+/* Como funciona */
+
+.sobre-funcionamento {
+    padding: 65px 0 85px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.sobre-secao-cabecalho {
+    max-width: 690px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.sobre-secao-cabecalho h2 {
+    margin: 0 0 16px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+}
+
+.sobre-secao-cabecalho p {
+    font-family: var(--fonte-texto);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.sobre-etapas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.sobre-etapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 300px;
+    padding: 30px 22px;
+
+    background-color: #F8EFD9;
+    border: 2px solid var(--cor-borda);
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.sobre-etapa-simbolo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 84px;
+    height: 84px;
+    margin-bottom: 12px;
+
+    border: 2px solid var(--cor-borda);
+    border-radius: 50%;
+
+    color: var(--cor-vermelho);
+    font-family: Georgia, serif;
+    font-size: 3.4rem;
+    line-height: 1;
+}
+
+.sobre-etapa-numero {
+    font-family: var(--fonte-titulo);
+    font-size: 2.7rem;
+    color: var(--cor-ambar);
+    line-height: 1.2;
+}
+
+.sobre-etapa h3 {
+    margin: 12px 0 8px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.sobre-etapa p {
+    margin: 0;
+
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Impacto social */
+
+.sobre-compromisso {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 65px;
+    align-items: center;
+
+    padding: 70px 0 90px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.sobre-criterios {
+    padding: 32px;
+
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+
+    background-color: var(--cor-superficie);
+}
+
+.sobre-criterios h3 {
+    margin: 0 0 22px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.65rem;
+    font-weight: 400;
+}
+
+.sobre-criterios ol {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.sobre-criterios li {
+    padding: 11px 0;
+
+    border-bottom: 1px solid rgba(107, 74, 47, 0.35);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.sobre-criterios li::marker {
+    color: var(--cor-vermelho);
+    font-weight: 700;
+}
+
+.sobre-criterios li:last-child {
+    border-bottom: none;
+}
+
+/* Convite final */
+
+.sobre-convite {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 56px 28px 64px;
+
+    background-color: #2A1714;
+    color: #F3E9D2;
+
+    border-radius: 14px;
+    text-align: center;
+}
+
+.sobre-convite::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+
+    background: linear-gradient(
+        to bottom,
+        #E84B3A 0%,
+        #E84B3A 16.66%,
+        #F47A20 16.66%,
+        #F47A20 33.33%,
+        #F5C443 33.33%,
+        #F5C443 50%,
+        #3D8A56 50%,
+        #3D8A56 66.66%,
+        #2E80C6 66.66%,
+        #2E80C6 83.33%,
+        #7D2B8C 83.33%
+    );
+}
+
+.sobre-convite-estrela {
+    color: var(--cor-ambar);
+    font-size: 2.6rem;
+}
+
+.sobre-convite h2 {
+    margin: 10px 0 18px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+}
+
+.sobre-convite p {
+    max-width: 610px;
+    margin: 0 0 28px;
+
+    font-family: var(--fonte-texto);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.sobre-convite-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 26px;
+
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+
+    border-radius: 8px;
+    border: 1px solid #F3E9D2;
+
+    font-family: var(--fonte-destaque);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sobre-convite-botao:hover {
+    background-color: #F3E9D2;
+}
+
+.sobre-convite-botao:focus-visible {
+    outline: 3px solid #F5C443;
+    outline-offset: 4px;
+}
+
+/* Responsividade */
+
+@media (max-width: 800px) {
+    .sobre-missao,
+    .sobre-compromisso {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .sobre-etapas {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-etapa {
+        min-height: auto;
+    }
+
+    .sobre-conteudo {
+        padding: 45px 24px 70px;
+    }
+
+    .sobre-missao {
+        padding-bottom: 60px;
+    }
+
+    .sobre-compromisso {
+        padding: 55px 0 65px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sobre-hero {
+        min-height: 350px;
+        padding: 48px 18px 125px;
+    }
+
+    .sobre-faixas {
+        height: 95px;
+    }
+
+    .sobre-conteudo {
+        padding: 35px 18px 60px;
+    }
+
+    .sobre-citacao {
+        padding: 26px;
+        min-height: 230px;
+    }
+
+    .sobre-criterios {
+        padding: 24px 20px;
+    }
+
+    .sobre-convite {
+        padding: 44px 20px 56px;
+    }
+
+    .sobre-convite-botao {
+        width: 100%;
+    }
+}

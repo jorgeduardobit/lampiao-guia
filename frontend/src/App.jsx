@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import ModeracaoServicos from './pages/ModeracaoServicos';
 import MeuPerfil from './pages/MeuPerfil';
 import Servicos from './pages/Servicos';
+import Sobre from './pages/Sobre';
 
 function PaginaProvisoria({ titulo }) {
     return (
@@ -87,7 +88,7 @@ function App() {
 
                 <Route
                     path="/sobre"
-                    element={<PaginaProvisoria titulo="Sobre o Lampião Guia" />}
+                    element={<Sobre />}
                 />
 
                 <Route
