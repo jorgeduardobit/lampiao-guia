@@ -1,21 +1,22 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import './Cadastro.css';
 
 function Cadastro() {
+    const navigate = useNavigate();
+
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
     const [enviando, setEnviando] = useState(false);
     const [erro, setErro] = useState('');
-    const [sucesso, setSucesso] = useState('');
 
     async function cadastrarUsuario(evento) {
         evento.preventDefault();
 
         setErro('');
-        setSucesso('');
         setEnviando(true);
 
         try {
@@ -27,7 +28,7 @@ function Cadastro() {
                 body: JSON.stringify({
                     nome: nome.trim(),
                     email: email.trim(),
-                    senha: senha
+                    senha
                 })
             });
 
@@ -40,13 +41,15 @@ function Cadastro() {
                 throw new Error('Falha ao cadastrar usuário.');
             }
 
-            setSucesso('Cadastro realizado com sucesso!');
+            // Cadastro concluído: encaminha para o login.
+            navigate('/login', {
+                replace: true,
+                state: {
+                    cadastroConcluido: true
+                }
+            });
 
-            setNome('');
-            setEmail('');
-            setSenha('');
-
-        } catch (falha) {
+        } catch {
             setErro('Não foi possível realizar o cadastro.');
         } finally {
             setEnviando(false);
@@ -97,11 +100,9 @@ function Cadastro() {
                         required
                     />
 
-                    {erro && <p role="alert" className="cadastro-erro">{erro}</p>}
-
-                    {sucesso && (
-                        <p role="status" className="cadastro-sucesso">
-                            {sucesso}
+                    {erro && (
+                        <p role="alert" className="cadastro-erro">
+                            {erro}
                         </p>
                     )}
 

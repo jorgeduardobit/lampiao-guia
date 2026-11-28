@@ -1,13 +1,18 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import './Login.css';
 
 function Login({ usuario, onLogin, onLogout }) {
+    const location = useLocation();
+
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
     const [enviando, setEnviando] = useState(false);
+
+    const cadastroConcluido =
+        location.state?.cadastroConcluido === true;
 
     async function entrar(evento) {
         evento.preventDefault();
@@ -73,23 +78,41 @@ function Login({ usuario, onLogin, onLogout }) {
                         </p>
 
                         <div className="login-acoes">
-                            <Link to="/" className="login-link-explorar">
+                            <Link
+                                to="/"
+                                className="login-link-explorar"
+                            >
                                 Explorar serviços
                             </Link>
 
-                        <button type="button" onClick={sair}>
-                        Sair da conta
-                        </button>
-</div>
+                            <button type="button" onClick={sair}>
+                                Sair da conta
+                            </button>
+                        </div>
                     </>
                 ) : (
                     <>
                         <h1>Boas-vindas de volta!</h1>
 
-                        <p>Entre para compartilhar suas experiências.</p>
+                        <p>
+                            Entre para compartilhar suas experiências.
+                        </p>
+
+                        {cadastroConcluido && (
+                            <p
+                                role="status"
+                                className="login-sucesso"
+                            >
+                                Conta criada com sucesso!
+                                Entre para continuar.
+                            </p>
+                        )}
 
                         <form onSubmit={entrar}>
-                            <label htmlFor="login-email">E-mail</label>
+                            <label htmlFor="login-email">
+                                E-mail
+                            </label>
+
                             <input
                                 id="login-email"
                                 type="email"
@@ -101,7 +124,10 @@ function Login({ usuario, onLogin, onLogout }) {
                                 required
                             />
 
-                            <label htmlFor="login-senha">Senha</label>
+                            <label htmlFor="login-senha">
+                                Senha
+                            </label>
+
                             <input
                                 id="login-senha"
                                 type="password"
@@ -113,16 +139,25 @@ function Login({ usuario, onLogin, onLogout }) {
                                 required
                             />
 
-                            {erro && <p role="alert" className="login-erro">{erro}</p>}
+                            {erro && (
+                                <p role="alert" className="login-erro">
+                                    {erro}
+                                </p>
+                            )}
 
-                            <button type="submit" disabled={enviando}>
+                            <button
+                                type="submit"
+                                disabled={enviando}
+                            >
                                 {enviando ? 'Entrando...' : 'Entrar'}
                             </button>
                         </form>
 
                         <p>
                             Ainda não tem uma conta?{' '}
-                            <Link to="/cadastro">Cadastre-se</Link>
+                            <Link to="/cadastro">
+                                Cadastre-se
+                            </Link>
                         </p>
                     </>
                 )}

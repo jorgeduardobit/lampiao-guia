@@ -111,3 +111,21 @@
 .login-acoes button {
     margin-top: 0;
 }
+
+/* Confirmação de cadastro */
+
+.login-container .login-sucesso {
+    margin: 22px 0 8px;
+    padding: 14px 18px;
+
+    background-color: #E4EBCF;
+    color: #365126;
+
+    border: 1px solid var(--cor-verde);
+    border-left: 4px solid var(--cor-verde);
+    border-radius: 8px;
+
+    font-family: var(--fonte-texto);
+    font-weight: 600;
+    line-height: 1.6;
+}
