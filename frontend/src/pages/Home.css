@@ -250,3 +250,85 @@
     margin-right: 14px;
     font-family: Georgia, serif;
 }
+
+
+/* Refinamento da identidade textual da Home */
+
+.home-slogan {
+    margin: 0 0 14px;
+
+    color: #F5C443;
+    font-family: var(--fonte-destaque);
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    line-height: 1.5;
+}
+
+.home-descricao {
+    max-width: 510px;
+    margin: 0 0 30px;
+
+    color: #F3E9D2;
+    font-family: var(--fonte-texto);
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.55;
+}
+
+/* Aproxima a marca dos textos */
+
+.home-logo-imagem {
+    margin-bottom: 18px;
+}
+
+/* Ajustes para celulares */
+
+@media (max-width: 768px) {
+    .home-slogan {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .home-descricao {
+        max-width: 100%;
+        font-size: 1.1rem;
+        line-height: 1.55;
+        text-align: center;
+    }
+}
+
+
+/* Refinamento do alinhamento da Home - Desktop */
+
+@media (min-width: 1101px) {
+
+    /* Reduz o espaço visual abaixo da logo */
+    .home-logo-imagem {
+        margin-bottom: -35px;
+    }
+
+    /* Alinha os elementos à tipografia da logo */
+    .home-slogan,
+    .home-descricao,
+    .home-hero .barra-busca {
+        margin-left: 60px;
+    }
+
+    /* Aproxima o slogan da descrição */
+    .home-slogan {
+        margin-bottom: 10px;
+    }
+
+    /* Aproxima a descrição da busca */
+    .home-descricao {
+        max-width: 500px;
+        margin-bottom: 22px;
+    }
+
+    /* Mantém a busca proporcional à logo */
+    .home-hero .barra-busca {
+        width: 100% - 60px;
+        max-width: 460px;
+    }
+}

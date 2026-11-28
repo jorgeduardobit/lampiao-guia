@@ -55,8 +55,13 @@ useEffect(() => {
             alt="Lampião Guia"
           />
 
+          <p className="home-slogan">
+              Informação, respeito e comunidade.
+          </p>
+
           <p className="home-descricao">
-            Serviços avaliados pela comunidade LGBTQIA+
+              Portal colaborativo de avaliações de
+              estabelecimentos e serviços pela comunidade LGBTQIA+.
           </p>
 
           <BarraBusca onBuscar={setBuscaAplicada} />
@@ -102,9 +107,9 @@ useEffect(() => {
       </section>
 
       <section className="home-listagem">
-        <h2>Serviços da comunidade</h2>
+        <h2>Explore os estabelecimentos</h2>
         <p>
-          Encontre serviços e conheça as experiências compartilhadas pela comunidade.
+          Conheça estabelecimentos e serviços por meio das experiencias compartilhadas pela comunidade LGBTQIA+
         </p>
           
 {carregando && (

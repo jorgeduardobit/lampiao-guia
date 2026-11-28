@@ -1,9 +1,13 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './BarraBusca.css';
 
-function BarraBusca({ onBuscar }) {
-    const [termo, setTermo] = useState('');
+function BarraBusca({ onBuscar, termoInicial = '' }) {
+    const [termo, setTermo] = useState(termoInicial);
+
+    useEffect(() => {
+        setTermo(termoInicial);
+    }, [termoInicial]);
 
     function enviarBusca(evento) {
         evento.preventDefault();
@@ -27,9 +31,11 @@ function BarraBusca({ onBuscar }) {
                 <input
                     id="busca-servicos"
                     type="search"
-                    placeholder="Buscar pelo nome do serviço..."
+                    placeholder="Buscar pelo nome do estabelecimento..."
                     value={termo}
-                    onChange={(evento) => setTermo(evento.target.value)}
+                    onChange={(evento) =>
+                        setTermo(evento.target.value)
+                    }
                 />
             </div>
         </form>

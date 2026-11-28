@@ -27,10 +27,15 @@ public class ServicoController {
 		this.service = service;
 	}
 	
-	@GetMapping
-	public List<Servico> listar(@RequestParam(required = false) String nome) {
-		return service.listarAprovados(nome);
-	}
+	
+    @GetMapping
+    public List<Servico> listar(
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String categoria) {
+
+        return service.listarAprovados(nome, categoria);
+    }
+
 	
 	@GetMapping("/pendentes")
 	public List<Servico> listarPendentes() {

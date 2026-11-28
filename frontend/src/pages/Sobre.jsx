@@ -52,7 +52,7 @@ function Sobre() {
                     <h1>Por trás do Lampião Guia</h1>
 
                     <p>
-                        Acolhimento, informação e comunidade.
+                        Informação, respeito e comunidade.
                     </p>
                 </div>
 

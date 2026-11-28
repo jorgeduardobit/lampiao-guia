@@ -45,6 +45,7 @@
 }
 
 .sugestao-campo input,
+.sugestao-campo select,
 .sugestao-campo textarea {
     width: 100%;
     padding: 13px 16px;
@@ -56,6 +57,7 @@
 }
 
 .sugestao-campo input:focus-visible,
+.sugestao-campo select:focus-visible,
 .sugestao-campo textarea:focus-visible {
     outline: 3px solid var(--cor-ambar);
     outline-offset: 2px;
