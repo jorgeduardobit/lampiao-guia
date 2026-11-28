@@ -128,3 +128,41 @@
     outline-offset: 4px;
     border-radius: 4px;
 }
+
+/* Link para entrar e avaliar */
+
+.formulario-avaliacao-entrar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    width: fit-content;
+
+    margin-top: 12px;
+    padding: 13px 24px;
+
+    background-color: var(--cor-ambar);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: var(--fonte-destaque);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.formulario-avaliacao-entrar:hover {
+    background-color: #F5C443;
+    transform: translateY(-2px);
+}
+
+.formulario-avaliacao-entrar:focus-visible {
+    outline: 3px solid var(--cor-vermelho);
+    outline-offset: 3px;
+}

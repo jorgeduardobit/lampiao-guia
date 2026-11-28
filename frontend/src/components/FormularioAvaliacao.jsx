@@ -80,7 +80,12 @@ function FormularioAvaliacao({ servicoId, usuario, onPublicada }) {
             <section className="formulario-avaliacao">
                 <h2>Compartilhe sua experiência</h2>
                 <p>Entre na sua conta para avaliar este serviço.</p>
-                <Link to="/login">Entrar para avaliar</Link>
+                <Link
+                    to="/login"
+                    className="formulario-avaliacao-entrar"
+                >
+                    Entrar para avaliar
+                </Link>
             </section>
         );
     }

@@ -1,0 +1,174 @@
+
+/* Rodapé do Lampião Guia */
+
+.footer {
+    background-color: #2A1714;
+    color: #F3E9D2;
+
+    font-family: var(--fonte-texto);
+}
+
+/* Faixas coloridas */
+
+.footer-faixa {
+    height: 12px;
+
+    background: linear-gradient(
+        to bottom,
+        #E84B3A 0% 16.66%,
+        #F47A20 16.66% 33.33%,
+        #F5C443 33.33% 50%,
+        #3D8A56 50% 66.66%,
+        #2E80C6 66.66% 83.33%,
+        #7D2B8C 83.33% 100%
+    );
+}
+
+.footer-conteudo {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 55px 32px 24px;
+}
+
+.footer-principal {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr 1fr;
+    gap: 60px;
+
+    padding-bottom: 48px;
+}
+
+/* Identidade */
+
+.footer-logo {
+    display: block;
+    width: 160px;
+    height: auto;
+}
+
+.footer-slogan {
+    margin: 22px 0 10px;
+
+    color: #E9C48B;
+    font-family: var(--fonte-destaque);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.footer-frase {
+    max-width: 290px;
+    margin: 0;
+
+    color: #D8C4A8;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* Navegação e apresentação */
+
+.footer-navegacao,
+.footer-projeto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-navegacao h2,
+.footer-projeto h2 {
+    margin: 0 0 8px;
+
+    color: #E9C48B;
+    font-family: var(--fonte-destaque);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.footer-navegacao a,
+.footer-projeto a {
+    color: #F3E9D2;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.footer-navegacao a:hover,
+.footer-projeto a:hover {
+    color: #F5C443;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.footer-navegacao a:focus-visible,
+.footer-projeto a:focus-visible,
+.footer-marca a:focus-visible {
+    outline: 2px solid #F5C443;
+    outline-offset: 4px;
+}
+
+.footer-projeto p {
+    margin: 0;
+
+    color: #D8C4A8;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* Linha inferior */
+
+.footer-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding-top: 22px;
+    border-top: 1px solid #6B4A2F;
+}
+
+.footer-inferior p {
+    margin: 0;
+    color: #CBB89F;
+    font-size: 0.8rem;
+}
+
+/* Tablets */
+
+@media (max-width: 900px) {
+    .footer-principal {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer-marca {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 600px) {
+    .footer-conteudo {
+        padding: 42px 24px 24px;
+    }
+
+    .footer-principal {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-bottom: 36px;
+    }
+
+    .footer-marca {
+        grid-column: auto;
+    }
+
+    .footer-logo {
+        width: 140px;
+    }
+
+    .footer-inferior {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -11,6 +11,7 @@ import ModeracaoServicos from './pages/ModeracaoServicos';
 import MeuPerfil from './pages/MeuPerfil';
 import Servicos from './pages/Servicos';
 import Sobre from './pages/Sobre';
+import Footer from './components/Footer';
 
 function PaginaProvisoria({ titulo }) {
     return (
@@ -106,6 +107,8 @@ function App() {
                             }
                 />
             </Routes>
+
+            <Footer />
         </>
     );
 }
