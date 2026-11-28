@@ -75,9 +75,10 @@ function Servicos() {
 
     return (
         <main className="servicos-pagina">
-            <section className="servicos-container">
 
-                <header className="servicos-cabecalho">
+            {/* Topo editorial marrom */}
+            <header className="servicos-cabecalho">
+                <div className="servicos-cabecalho-conteudo">
                     <span className="servicos-etiqueta">
                         O GUIA DA COMUNIDADE
                     </span>
@@ -89,7 +90,11 @@ function Servicos() {
                         experiências compartilhadas pela
                         comunidade LGBTQIA+.
                     </p>
-                </header>
+                </div>
+            </header>
+
+            {/* Área de catálogo com fundo creme */}
+            <div className="servicos-container">
 
                 <section
                     className="servicos-busca"
@@ -194,9 +199,8 @@ function Servicos() {
                             ))}
                         </div>
                     )}
-
                 </section>
-            </section>
+            </div>
         </main>
     );
 }

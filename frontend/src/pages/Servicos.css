@@ -1,32 +1,37 @@
 
-/* Página de serviços */
+/* ========================================
+   PÁGINA DE SERVIÇOS
+   ======================================== */
 
 .servicos-pagina {
     min-height: 85vh;
-    padding: 64px 8% 100px;
-
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
 }
 
-.servicos-container {
+/* ========================================
+   CABEÇALHO EDITORIAL
+   ======================================== */
+
+.servicos-cabecalho {
+    width: 100%;
+    padding: 0 8%;
+    background-color: #2A1714;
+    color: #F3E9D2;
+}
+
+.servicos-cabecalho-conteudo {
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-}
-
-/* Cabeçalho */
-
-.servicos-cabecalho {
-    max-width: 780px;
-    margin-bottom: 44px;
+    padding: 64px 0 70px;
 }
 
 .servicos-etiqueta {
     display: inline-block;
     margin-bottom: 16px;
 
-    color: var(--cor-vermelho);
+    color: #F5C443;
     font-family: var(--fonte-destaque);
     font-size: 0.75rem;
     font-weight: 700;
@@ -36,6 +41,7 @@
 .servicos-cabecalho h1 {
     margin: 0 0 20px;
 
+    color: #FFF5E2;
     font-family: var(--fonte-titulo);
     font-size: clamp(2.4rem, 5vw, 4rem);
     font-weight: 400;
@@ -46,19 +52,152 @@
     max-width: 650px;
     margin: 0;
 
+    color: #E8D9B8;
     font-family: var(--fonte-texto);
     font-size: 1.1rem;
     line-height: 1.7;
 }
 
-/* Busca */
+/* ========================================
+   CONTEÚDO DO CATÁLOGO
+   ======================================== */
+
+.servicos-container {
+    width: 84%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 0 100px;
+}
+
+/* ========================================
+   BUSCA
+   ======================================== */
 
 .servicos-busca {
     max-width: 650px;
     margin-bottom: 64px;
 }
 
-/* Resultados */
+/* Contraste da barra sobre o fundo creme */
+
+.servicos-busca .barra-busca-campo {
+    background-color: #FFF8EB;
+    border: 1px solid #9A7957;
+
+    box-shadow: 0 2px 5px rgba(59, 42, 30, 0.05);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.servicos-busca .barra-busca-campo:hover {
+    border-color: var(--cor-borda);
+}
+
+.servicos-busca .barra-busca-campo:focus-within {
+    border-color: var(--cor-borda);
+    box-shadow: 0 0 0 3px rgba(217, 142, 4, 0.12);
+}
+
+.servicos-busca .barra-busca-campo input::placeholder {
+    color: #735844;
+    opacity: 1;
+}
+
+/* ========================================
+   FILTRO DE CATEGORIAS
+   ======================================== */
+
+.servicos-filtros {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.servicos-filtro-categoria {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    width: 100%;
+    max-width: 380px;
+}
+
+.servicos-filtro-categoria label {
+    color: var(--cor-texto);
+    font-family: var(--fonte-destaque);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.servicos-filtro-categoria select {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 16px;
+
+    background-color: #FFF8EB;
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: var(--fonte-texto);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.servicos-filtro-categoria select:focus-visible {
+    outline: 3px solid var(--cor-ambar);
+    outline-offset: 3px;
+}
+
+/* Limpar filtros */
+
+.servicos-limpar {
+    min-height: 50px;
+    padding: 12px 18px;
+
+    background-color: transparent;
+    color: var(--cor-borda);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: var(--fonte-destaque);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.servicos-limpar:hover {
+    background-color: var(--cor-superficie);
+}
+
+.servicos-limpar:focus-visible {
+    outline: 3px solid var(--cor-ambar);
+    outline-offset: 3px;
+}
+
+/* Categoria selecionada */
+
+.servicos-filtro-ativo {
+    margin: 0 0 24px;
+
+    color: var(--cor-borda);
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+}
+
+.servicos-filtro-ativo strong {
+    color: var(--cor-texto);
+}
+
+/* ========================================
+   RESULTADOS
+   ======================================== */
 
 .servicos-resultados-cabecalho {
     display: flex;
@@ -86,7 +225,7 @@
     font-size: 0.9rem;
 }
 
-/* Link de sugestão */
+/* Botão de sugestão */
 
 .servicos-sugerir {
     display: inline-flex;
@@ -140,15 +279,32 @@
     line-height: 1.6;
 }
 
-/* Responsividade */
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
 
 @media (max-width: 768px) {
-    .servicos-pagina {
-        padding: 40px 20px 70px;
+    .servicos-cabecalho {
+        padding: 0 20px;
     }
 
-    .servicos-cabecalho {
-        margin-bottom: 32px;
+    .servicos-cabecalho-conteudo {
+        padding: 44px 0 50px;
+    }
+
+    .servicos-cabecalho h1 {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+
+    .servicos-cabecalho p {
+        font-size: 1rem;
+    }
+
+    .servicos-container {
+        width: auto;
+        max-width: none;
+        margin: 0 20px;
+        padding: 40px 0 70px;
     }
 
     .servicos-busca {
@@ -159,103 +315,6 @@
         align-items: flex-start;
     }
 }
-
-@media (max-width: 480px) {
-    .servicos-sugerir {
-        width: 100%;
-    }
-}
-
-/* Filtro de categorias */
-
-.servicos-filtros {
-    display: flex;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 16px;
-
-    margin-top: 22px;
-}
-
-.servicos-filtro-categoria {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-
-    width: 100%;
-    max-width: 380px;
-}
-
-.servicos-filtro-categoria label {
-    color: var(--cor-texto);
-    font-family: var(--fonte-destaque);
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.servicos-filtro-categoria select {
-    width: 100%;
-    min-height: 50px;
-    padding: 12px 16px;
-
-    background-color: #FFF8EB;
-    color: var(--cor-texto);
-
-    border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-
-    font-family: var(--fonte-texto);
-    font-size: 0.95rem;
-    cursor: pointer;
-}
-
-.servicos-filtro-categoria select:focus-visible {
-    outline: 3px solid var(--cor-ambar);
-    outline-offset: 3px;
-}
-
-/* Botão para limpar os filtros */
-
-.servicos-limpar {
-    min-height: 50px;
-    padding: 12px 18px;
-
-    background-color: transparent;
-    color: var(--cor-borda);
-
-    border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-
-    font-family: var(--fonte-destaque);
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.servicos-limpar:hover {
-    background-color: var(--cor-superficie);
-}
-
-.servicos-limpar:focus-visible {
-    outline: 3px solid var(--cor-ambar);
-    outline-offset: 3px;
-}
-
-/* Indicação da categoria selecionada */
-
-.servicos-filtro-ativo {
-    margin: 0 0 24px;
-
-    color: var(--cor-borda);
-    font-family: var(--fonte-texto);
-    font-size: 0.9rem;
-}
-
-.servicos-filtro-ativo strong {
-    color: var(--cor-texto);
-}
-
-/* Responsividade */
 
 @media (max-width: 600px) {
     .servicos-filtros {
@@ -268,6 +327,12 @@
     }
 
     .servicos-limpar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicos-sugerir {
         width: 100%;
     }
 }
